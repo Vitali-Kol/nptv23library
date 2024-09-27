@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.example.model.Autor;
 
 import java.util.Arrays;
 import java.util.UUID;
@@ -6,15 +8,14 @@ import java.util.UUID;
 public class Book {
     private UUID id;
     private String title;
-    private Author[] authors = new Author[10];
+    private Autor[] authors;
     private int publishedYear;
 
     public Book() {
         this.id = UUID.randomUUID();
     }
 
-    public Book(String title, Author[] authors, int publishedYear) {
-        this.id = UUID.randomUUID();
+    public Book(String title, Autor[] authors, int publishedYear) {
         this.title = title;
         this.authors = authors;
         this.publishedYear = publishedYear;
@@ -36,11 +37,11 @@ public class Book {
         this.title = title;
     }
 
-    public Author[] getAuthors() {
+    public Autor[] getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Author[] authors) {
+    public void setAuthors(Autor[] authors) {
         this.authors = authors;
     }
 
@@ -79,4 +80,5 @@ public class Book {
                 ", publishedYear=" + publishedYear +
                 '}';
     }
+
 }
