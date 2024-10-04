@@ -37,6 +37,6 @@ public class App {
                     System.out.println("Выберите задачу из списка!");
             }
         } while (repeat);
-        System.out.println("Досвидания :)");
+        System.out.println("До свидания :)");
     }
 }
