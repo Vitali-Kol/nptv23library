@@ -1,19 +1,24 @@
 package ee.ivkhkdev;
 
-import ee.ivkhkdev.handlers.BookService;
-import ee.ivkhkdev.interfaces.InputProvider;
+import ee.ivkhkdev.input.Input;
+import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.Book;
+import ee.ivkhkdev.services.Service;
 
 public class App {
 
-    public static Book[] books = new Book[100];
+    private final Service<Book> bookService;
+    private final Input input;
+    private final Service<Author> authorService;
 
-    private final BookService bookService;
-    private final InputProvider inputProvider;
+    public App(
+            Input input,
+            Service<Book> bookService,
+            Service<Author> authorService) {
 
-    public App(InputProvider inputProvider,BookService bookService) {
+        this.input = input;
         this.bookService = bookService;
-        this.inputProvider = inputProvider;
+        this.authorService = authorService;
     }
 
     public void run() {
@@ -25,19 +30,33 @@ public class App {
             System.out.println("0. Выйти из программы");
             System.out.println("1. Добавить книгу");
             System.out.println("2. Список книг");
+            System.out.println("3. Добавить автора");
             System.out.print("Введите номер задачи: ");
-            int task = Integer.parseInt(inputProvider.getInput());
+            int task = Integer.parseInt(input.getString());
             switch (task) {
                 case 0:
-                    repeat=false;
+                    repeat = false;
                     break;
                 case 1:
                     System.out.println("----- Добавление книги -----");
-                    bookService.addBbook(inputProvider);
+                    if (bookService.add()) {
+                        System.out.println("Книга добавлена");
+                    } else {
+                        System.out.println("Книгу добавить не удалось");
+                    }
+                    ;
                     break;
                 case 2:
                     System.out.println("----- Список книг -----");
-                    System.out.println(bookService.printListBooks());
+                    bookService.print();
+                    break;
+                case 3:
+                    System.out.println("----- Добавление автора -----");
+                    if (authorService.add()) {
+                        System.out.println("Автор добавлен");
+                    } else {
+                        System.out.println("Автора добавить не удалось");
+                    }
                     break;
                 default:
                     System.out.println("Выберите задачу из списка!");
