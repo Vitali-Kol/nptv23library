@@ -1,5 +1,6 @@
 package ee.ivkhkdev;
 
+
 import ee.ivkhkdev.input.Input;
 import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.Book;
@@ -19,6 +20,7 @@ public class App {
         this.input = input;
         this.bookService = bookService;
         this.authorService = authorService;
+
     }
 
     public void run() {
@@ -30,7 +32,9 @@ public class App {
             System.out.println("0. Выйти из программы");
             System.out.println("1. Добавить книгу");
             System.out.println("2. Список книг");
+
             System.out.println("3. Добавить автора");
+
             System.out.print("Введите номер задачи: ");
             int task = Integer.parseInt(input.getString());
             switch (task) {
@@ -39,6 +43,7 @@ public class App {
                     break;
                 case 1:
                     System.out.println("----- Добавление книги -----");
+
                     if (bookService.add()) {
                         System.out.println("Книга добавлена");
                     } else {
@@ -57,6 +62,7 @@ public class App {
                     } else {
                         System.out.println("Автора добавить не удалось");
                     }
+
                     break;
                 default:
                     System.out.println("Выберите задачу из списка!");
@@ -65,4 +71,6 @@ public class App {
         }while(repeat);
         System.out.println("До свидания :)");
     }
+
+
 }

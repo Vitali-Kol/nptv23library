@@ -48,5 +48,6 @@ public class BookService implements Service<Book>{
     @Override
     public List<Book> list() {
         return books;
+
     }
 }

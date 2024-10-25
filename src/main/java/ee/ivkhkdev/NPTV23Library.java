@@ -1,5 +1,6 @@
 package ee.ivkhkdev;
 
+
 import ee.ivkhkdev.apphelpers.AppHelper;
 import ee.ivkhkdev.apphelpers.AppHelperAuthor;
 import ee.ivkhkdev.input.Input;
@@ -14,11 +15,11 @@ import ee.ivkhkdev.services.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class NPTV23Library {
 
     public static void main(String[] args) {
+
         List<Book> books = new ArrayList<>();
         List<Author> authors = new ArrayList<>();
         Input input = new ConsoleInput();
