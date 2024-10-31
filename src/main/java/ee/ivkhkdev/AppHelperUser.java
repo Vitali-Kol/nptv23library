@@ -1,4 +1,4 @@
-package ee.ivkhkdev.apphelpers;
+package ee.ivkhkdev;
 
 import ee.ivkhkdev.interfaces.FileRepository;
 import ee.ivkhkdev.interfaces.AppHelper;

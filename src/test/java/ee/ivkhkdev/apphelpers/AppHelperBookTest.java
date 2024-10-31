@@ -1,5 +1,6 @@
 package ee.ivkhkdev.apphelpers;
 
+import ee.ivkhkdev.AppHelperBook;
 import ee.ivkhkdev.interfaces.FileRepository;
 import ee.ivkhkdev.interfaces.Input;
 import ee.ivkhkdev.model.Author;

@@ -4,6 +4,7 @@ import ee.ivkhkdev.interfaces.Service;
 import ee.ivkhkdev.interfaces.Input;
 import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.Book;
+import ee.ivkhkdev.model.User;
 
 import java.util.Scanner;
 
@@ -12,10 +13,12 @@ public class App implements Input {
     private final Service<Book> bookService;
     private final Service<Author> authorService;
     private final Scanner scanner = new Scanner(System.in); // Инициализация Scanner как поля класса
+    private final Service<User> userService;
 
-    public App(Service<Book> bookService, Service<Author> authorService) {
+    public App(Service<Book> bookService, Service<Author> authorService, Service<User> userService) {
         this.bookService = bookService;
         this.authorService = authorService;
+        this.userService = userService;
     }
 
     public void run() {

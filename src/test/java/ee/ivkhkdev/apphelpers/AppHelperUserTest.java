@@ -1,5 +1,6 @@
 package ee.ivkhkdev.apphelpers;
 
+import ee.ivkhkdev.AppHelperUser;
 import ee.ivkhkdev.interfaces.FileRepository;
 import ee.ivkhkdev.model.User;
 import org.junit.jupiter.api.AfterEach;

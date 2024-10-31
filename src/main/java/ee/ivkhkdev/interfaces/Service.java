@@ -3,9 +3,9 @@ package ee.ivkhkdev.interfaces;
 import java.util.List;
 
 public interface Service<T> {
-    boolean add();
-    boolean edit(T entity);
-    boolean remove(T entity);
-    void print();
-    List<T> list();
+    boolean add();       // Метод для добавления элемента
+    boolean edit(T entity); // Метод для редактирования
+    boolean remove(T entity); // Метод для удаления
+    void print();        // Метод для печати списка
+    List<T> list();      // Метод для получения списка
 }
