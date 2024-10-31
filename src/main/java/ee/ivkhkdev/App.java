@@ -5,15 +5,21 @@ import ee.ivkhkdev.interfaces.Input;
 import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.Book;
 import ee.ivkhkdev.interfaces.Service;
+import ee.ivkhkdev.model.Card;
+import ee.ivkhkdev.model.User;
 
 public class App implements Input{
 
     private final Service<Book> bookService;
     private final Service<Author> authorService;
+    private final Service<User> userService;
+    private final Service<Card> cardService;
 
-    public App(Service<Book> bookService, Service<Author> authorService) {
+    public App(Service<Book> bookService, Service<Author> authorService, Service<User>userService, Service<Card> cardService) {
         this.bookService = bookService;
         this.authorService = authorService;
+        this.userService = userService;
+        this.cardService = cardService;
     }
 
     public void run() {
@@ -25,8 +31,8 @@ public class App implements Input{
             System.out.println("0. Выйти из программы");
             System.out.println("1. Добавить книгу");
             System.out.println("2. Список книг");
-
             System.out.println("3. Добавить автора");
+            System.out.println("4. Добавить читателя");
 
             System.out.print("Введите номер задачи: ");
             int task = Integer.parseInt(getString());
@@ -53,6 +59,14 @@ public class App implements Input{
                         System.out.println("Автор добавлен");
                     } else {
                         System.out.println("Автора добавить не удалось");
+                    }
+                    break;
+                case 4:
+                    System.out.println("----- Добавление читателя -----");
+                    if (userService.add()) {
+                        System.out.println("Читатель добавлен");
+                    } else {
+                        System.out.println("Читателя добавить не удалось");
                     }
                     break;
                 default:
