@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BookService implements Service<Book> {
 
-    private final List<Book> books;
+    private List<Book> books;
     private final AppHelper<Book> appHelperBook;
 
 
@@ -22,10 +22,13 @@ public class BookService implements Service<Book> {
     public boolean add() {
         try {
             Book book = appHelperBook.create();
-            if(book == null) {return false;}
-            appHelperBook.getRepository().save(book);
+            if (book == null) return false;
+
+            books.add(book); // Добавляем в локальный список
+            appHelperBook.getRepository().save(books); // Сохраняем в репозиторий
+
             return true;
-        }catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
         return false;
@@ -48,7 +51,7 @@ public class BookService implements Service<Book> {
 
     @Override
     public List<Book> list() {
-        return appHelperBook.getRepository().load();
-
+        books = appHelperBook.getRepository().load(); // Загружаем из репозитория
+        return books;
     }
 }
