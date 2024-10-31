@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b4acfb5f-dda8-4640-9248-4bd057351b32" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2mdqvl8Iugjvdromy8E7XYERua2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.NPTV23Library.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperAuthorTest.create.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperAuthorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperAuthorTest.printList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperBookTest.createWithAddAuthor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperBookTest.createWithoutAddAuthor.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperBookTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppHelperBookTest.printList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AppTest.testAppRun.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppTest.testAppRunAddBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AppTest.testAppRunExit.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorAppHelperTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorAppHelperTest.testCreate.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.AuthorAppHelperTest.testCreateHandlesError.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorAppHelperTest.testPrintList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorServiceTest.add.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apphelpers in NPTV23Library.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in NPTV23Library.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NPTV23Library [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NPTV23Library [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NPTV23Library [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NPTV23Library [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NPTV23Library [validate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;refactoring&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/golan/Downloads/refactoring/NPTV23Library-refactoring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/JVM/IdeaProjects/NPTV23Library/src/main/java/ee/ivkhkdev/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ee.ivkhkdev.model" />
+      <recent name="ee.ivkhkdev.services" />
+      <recent name="ee.ivkhkdev.interfaces.impl" />
+      <recent name="ee.ivkhkdev.interfaces" />
+      <recent name="ee.ivkhkdev.handlers" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ee.ivkhkdev.apphelpers" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ee.ivkhkdev.apphelpers" />
+      <recent name="ee.ivkhkdev.services" />
+      <recent name="ee.ivkhkdev" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ee.ivkhkdev.interfaces.impl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in NPTV23Library">
+    <configuration name="All in NPTV23Library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppHelperAuthorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.AppHelperAuthor" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AppHelperAuthorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppHelperAuthorTest.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.AppHelperAuthor" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AppHelperAuthorTest" />
+      <option name="METHOD_NAME" value="testCreate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppHelperAuthorTest.testCreateHandlesError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.AppHelperAuthor" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AppHelperAuthorTest" />
+      <option name="METHOD_NAME" value="testCreateHandlesError" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppHelperAuthorTest.testPrintList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.AppHelperAuthor" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AppHelperAuthorTest" />
+      <option name="METHOD_NAME" value="testPrintList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in NPTV23Library" />
+        <item itemvalue="JUnit.AppHelperAuthorTest" />
+        <item itemvalue="JUnit.AppHelperAuthorTest.testCreateHandlesError" />
+        <item itemvalue="JUnit.AppHelperAuthorTest.testPrintList" />
+        <item itemvalue="JUnit.AppHelperAuthorTest.testCreate" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4acfb5f-dda8-4640-9248-4bd057351b32" name="Changes" comment="" />
+      <created>1727417039104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727417039104</updated>
+      <workItem from="1727417040338" duration="9585000" />
+      <workItem from="1727846816881" duration="593000" />
+      <workItem from="1727847442786" duration="8853000" />
+      <workItem from="1728623749998" duration="9331000" />
+      <workItem from="1729230870150" duration="19013000" />
+      <workItem from="1730355480051" duration="6869000" />
+      <workItem from="1730371315262" duration="307000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="books" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
