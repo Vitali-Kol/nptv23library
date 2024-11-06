@@ -1,6 +1,5 @@
 package ee.ivkhkdev.apphelpers;
 
-import ee.ivkhkdev.interfaces.AppHelpCard;
 import ee.ivkhkdev.interfaces.AppHelper;
 import ee.ivkhkdev.interfaces.Input;
 import ee.ivkhkdev.interfaces.Service;
@@ -8,10 +7,9 @@ import ee.ivkhkdev.model.Book;
 import ee.ivkhkdev.model.Card;
 import ee.ivkhkdev.model.User;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-public class CardAppHelper implements AppHelpCard, Input {
+public class CardAppHelper implements AppHelper<Card>, Input {
     private final Service<Book> bookService;
     private final Service<User> userService;
 
@@ -67,7 +65,6 @@ public class CardAppHelper implements AppHelpCard, Input {
         }
     }
 
-    @Override
     public List<Card> returnBook(List<Card> cards) {
         return null;
     }

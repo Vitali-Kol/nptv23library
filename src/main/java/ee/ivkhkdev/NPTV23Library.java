@@ -3,7 +3,6 @@ package ee.ivkhkdev;
 
 import ee.ivkhkdev.apphelpers.CardAppHelper;
 import ee.ivkhkdev.apphelpers.UserAppHelper;
-import ee.ivkhkdev.interfaces.AppHelpCard;
 import ee.ivkhkdev.interfaces.AppHelper;
 import ee.ivkhkdev.apphelpers.AuthorAppHelper;
 import ee.ivkhkdev.apphelpers.BookAppHelper;
@@ -19,9 +18,6 @@ import ee.ivkhkdev.interfaces.Service;
 import ee.ivkhkdev.services.CardService;
 import ee.ivkhkdev.services.UserService;
 import ee.ivkhkdev.storage.Storage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class NPTV23Library {
