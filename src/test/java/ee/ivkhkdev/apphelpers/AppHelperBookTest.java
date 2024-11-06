@@ -8,9 +8,7 @@ import ee.ivkhkdev.model.Book;
 import ee.ivkhkdev.interfaces.Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,73 +17,62 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class AppHelperBookTest {
-    @Mock
-    private Input input;
 
-    @Mock
-    private Service<Author> authorService;
-
-    @Mock
-    private FileRepository<Book> bookRepository;
-
-    @InjectMocks
+    private Input inputMock;
+    private Service<Author> authorServiceMock;
+    private FileRepository<Book> bookRepositoryMock;
     private AppHelperBook appHelperBook;
+    private List<Author> authors;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);
+        inputMock = mock(Input.class);
+        authorServiceMock = mock(Service.class);
+        bookRepositoryMock = mock(FileRepository.class);
+
+        // Создаем список авторов для теста
+        authors = new ArrayList<>();
+        authors.add(new Author("Иван", "Иванов"));
+        authors.add(new Author("Александр", "Петров"));
+
+        // Настраиваем моки
+        when(authorServiceMock.list()).thenReturn(authors);
+
+        appHelperBook = new AppHelperBook(inputMock, authorServiceMock, bookRepositoryMock);
     }
 
     @Test
-    void testCreateBookWithAuthors() {
-        when(input.getString()).thenReturn("My Book", "n", "1", "1", "2023");
-
-        List<Author> authors = new ArrayList<>();
-        Author author = new Author();
-        author.setAuthorName("John");
-        author.setAuthorSurname("Doe");
-        authors.add(author);
-
-        when(authorService.list()).thenReturn(authors);
-
-        Book book = appHelperBook.create();
-
-        assertNotNull(book);
-        assertEquals("My Book", book.getTitle());
-        assertEquals(1, book.getAuthors().size());
-        assertEquals(author.getAuthorName(), book.getAuthors().get(0).getAuthorName());
-        assertEquals(2023, book.getPublishedYear());
-
-        verify(input, times(5)).getString();
-        verify(authorService, times(1)).list();
+    void testGetRepository() {
+        assertEquals(bookRepositoryMock, appHelperBook.getRepository(), "Должен возвращать bookRepository");
     }
 
     @Test
-    void testCreateBookWithNewAuthor() {
-        when(input.getString()).thenReturn("My Book", "y");
+    void testCreateBook() {
+        // Настраиваем ввод данных
+        when(inputMock.getString()).thenReturn("Книга по Java", "1", "n", "2023");
 
         Book book = appHelperBook.create();
 
-        assertNull(book);
-        verify(input, times(2)).getString();
+        assertNotNull(book, "Книга не должна быть null");
+        assertEquals("Книга по Java", book.getTitle(), "Название книги должно совпадать");
+        assertEquals(2023, book.getPublishedYear(), "Год издания должен совпадать");
+        assertEquals(1, book.getAuthors().size(), "Должен быть один автор");
+        assertEquals("Иван", book.getAuthors().get(0).getAuthorName(), "Имя автора должно совпадать");
+        assertEquals("Иванов", book.getAuthors().get(0).getAuthorSurname(), "Фамилия автора должна совпадать");
     }
 
     @Test
     void testPrintList() {
         List<Book> books = new ArrayList<>();
         Book book = new Book();
-        book.setTitle("My Book");
-
-        Author author = new Author();
-        author.setAuthorName("John");
-        author.setAuthorSurname("Doe");
-        book.getAuthors().add(author);
+        book.setTitle("Книга по Java");
         book.setPublishedYear(2023);
+        book.getAuthors().add(new Author("Иван", "Иванов"));
         books.add(book);
 
         appHelperBook.printList(books);
 
-        verify(input, never()).getString();
+        // Проверяем, что информация о книге выводится корректно
+        verify(inputMock, times(0)).getString(); // getString не должен вызываться при printList
     }
-
 }

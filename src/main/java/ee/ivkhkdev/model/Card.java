@@ -99,5 +99,9 @@ public class Card implements Serializable {
                 ", overdue=" + overdue +
                 '}';
     }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 }
 
