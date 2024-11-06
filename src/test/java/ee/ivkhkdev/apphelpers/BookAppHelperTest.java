@@ -1,8 +1,10 @@
 package ee.ivkhkdev.apphelpers;
 
+import ee.ivkhkdev.interfaces.AppHelper;
 import ee.ivkhkdev.interfaces.Service;
 import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.Book;
+import ee.ivkhkdev.services.AuthorService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,14 +19,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class BookAppHelperTest {
-    private BookAppHelper bookAppHelper;
+    private AppHelper<Book> bookAppHelper;
     private Service<Author> authorService;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
     @BeforeEach
     public void setUp() {
-        authorService = mock(Service.class);
+        authorService = mock(AuthorService.class);
         bookAppHelper = new BookAppHelper(authorService);
         System.setOut(new PrintStream(outContent));
     }
@@ -39,7 +41,7 @@ class BookAppHelperTest {
         doNothing().when(authorService).print();
 
         // Мокируем ввод
-        BookAppHelper spyHelper = Mockito.spy(bookAppHelper);
+        BookAppHelper spyHelper = (BookAppHelper) Mockito.spy(bookAppHelper);
         // Не добавляем нового автора(n).Указываем количество авторов(1). Выбор автора (1), Год издания(2024)
         doReturn("НазваниеКниги","n","1","1","2024").when(spyHelper).getString();
 

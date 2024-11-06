@@ -22,7 +22,7 @@ class UserAppHelperTest {
 
     @Mock
     private UserAppHelper inputMock;
-
+    private PrintStream originalOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
     @BeforeEach
@@ -56,5 +56,10 @@ class UserAppHelperTest {
 
         assertTrue(outputStreamCaptor.toString().contains(expectedOutput1));
         assertTrue(outputStreamCaptor.toString().contains(expectedOutput2));
+    }
+    @AfterEach
+    public void tearDown() {
+        System.setOut(originalOut);
+        outputStreamCaptor.reset();
     }
 }

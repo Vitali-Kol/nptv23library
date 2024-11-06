@@ -44,8 +44,8 @@ public class BookService implements Service<Book> {
     }
 
     @Override
-    public void print() {
-        appHelperBook.printList(this.list());
+    public boolean print() {
+       return appHelperBook.printList(this.list());
     }
 
     @Override

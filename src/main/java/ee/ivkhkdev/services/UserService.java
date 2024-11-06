@@ -37,12 +37,12 @@ public class UserService implements Service<User>, Input {
     }
 
     @Override
-    public void print() {
-
+    public boolean print() {
+        return false;
     }
 
     @Override
-    public List list() {
+    public List<User> list() {
         return storage.load(fileName);
     }
 }

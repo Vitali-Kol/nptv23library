@@ -22,7 +22,7 @@ public class BookAppHelper implements AppHelper<Book>, Input{
         System.out.print("Название книги: ");
         book.setTitle(getString());
         authorService.print();
-        System.out.println("Добавить нового автора (y/n): ");
+        System.out.print("Добавить нового автора (y/n): ");
         String answer = getString();
         if(answer.equalsIgnoreCase("y")) {return null;}
         System.out.print("Укажите количество авторов книги: ");

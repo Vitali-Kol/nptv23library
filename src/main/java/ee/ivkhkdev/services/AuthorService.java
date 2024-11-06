@@ -43,8 +43,8 @@ public class AuthorService implements Service<Author> {
     }
 
     @Override
-    public void print() {
-        appHelperAuthor.printList(this.list());
+    public boolean print() {
+       return appHelperAuthor.printList(this.list());
     }
 
     @Override

@@ -7,6 +7,7 @@ import ee.ivkhkdev.model.Book;
 import ee.ivkhkdev.interfaces.Service;
 import ee.ivkhkdev.model.Card;
 import ee.ivkhkdev.model.User;
+import ee.ivkhkdev.services.CardService;
 
 public class App implements Input{
 
@@ -33,6 +34,8 @@ public class App implements Input{
             System.out.println("2. Список книг");
             System.out.println("3. Добавить автора");
             System.out.println("4. Добавить читателя");
+            System.out.println("5. Выдать книгу");
+            System.out.println("6. Вернуть книгу");
 
             System.out.print("Введите номер задачи: ");
             int task = Integer.parseInt(getString());
@@ -67,6 +70,22 @@ public class App implements Input{
                         System.out.println("Читатель добавлен");
                     } else {
                         System.out.println("Читателя добавить не удалось");
+                    }
+                    break;
+                case 5:
+                    System.out.println("------Выдача книги------");
+                    if (cardService.add()) {
+                        System.out.println("Книга выдана");
+                    }else {
+                        System.out.println("Книгу выдать не удалось");
+                    }
+                    break;
+                case 6:
+                    System.out.println("------Возварат книги------");
+                    if (((CardService)cardService).returnBook()) {
+                        System.out.println("Книга возвращена");
+                    }else {
+                        System.out.println("Книгу возвратить не удалось");
                     }
                     break;
                 default:

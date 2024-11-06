@@ -1,5 +1,6 @@
 package ee.ivkhkdev.services;
 
+import ee.ivkhkdev.apphelpers.CardAppHelper;
 import ee.ivkhkdev.interfaces.*;
 import ee.ivkhkdev.model.Book;
 import ee.ivkhkdev.model.Card;
@@ -8,12 +9,12 @@ import java.util.List;
 
 public class CardService implements Service<Card>, Input {
     private final String fileName = "cards";
-    private final AppHelpCard cardAppHelper;
+    private final AppHelper<Card> cardAppHelper;
     private final Service<Book> bookService;
     private final Service<User> userService;
     private final FileRepository<Card> storage;
 
-    public CardService(AppHelpCard cardAppHelper, Service<Book> bookService, Service<User> userService, FileRepository<Card> repository) {
+    public CardService(AppHelper<Card> cardAppHelper, Service<Book> bookService, Service<User> userService, FileRepository<Card> repository) {
         this.cardAppHelper=cardAppHelper;
         this.bookService = bookService;
         this.userService = userService;
@@ -32,10 +33,14 @@ public class CardService implements Service<Card>, Input {
             return false;
         }
     }
-    public List<Card> returnBook(){
-        List<Card> cards = cardAppHelper.returnBook(storage.load(fileName));
-        return null;
+
+    public boolean returnBook(){
+        List<Card> modifedCards =((CardAppHelper)cardAppHelper).returnBook(storage.load(fileName));
+        if(modifedCards == null) {return false;}
+        storage.saveAll(modifedCards,fileName);
+        return true;
     }
+
     @Override
     public boolean edit(Card entity) {
         return false;

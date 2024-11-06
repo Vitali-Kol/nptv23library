@@ -6,7 +6,6 @@ import ee.ivkhkdev.apphelpers.UserAppHelper;
 import ee.ivkhkdev.interfaces.AppHelper;
 import ee.ivkhkdev.apphelpers.AuthorAppHelper;
 import ee.ivkhkdev.apphelpers.BookAppHelper;
-import ee.ivkhkdev.interfaces.AppHelperCard;
 import ee.ivkhkdev.interfaces.FileRepository;
 import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.Book;
@@ -33,10 +32,8 @@ public class NPTV23Library {
         Service<Author> authorService = new AuthorService(authorAppHelper,authorStorage);
         AppHelper<Book> appHelperBook = new BookAppHelper(authorService);
         Service<Book> bookService = new BookService(appHelperBook,bookStorage);
-        AppHelpCard cardAppHelper = new CardAppHelper(bookService,userService);
-
+        AppHelper<Card> cardAppHelper = new CardAppHelper(bookService,userService);
         Service<Card> cardService = new CardService(cardAppHelper, bookService, userService, cardStorage);
-
         App app = new App(bookService, authorService,userService,cardService);
         app.run();
     }
