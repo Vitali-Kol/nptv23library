@@ -20,7 +20,7 @@ public class AuthorAppHelper implements AppHelper<Author>, Input {
             Author author = new Author();
             System.out.print("Имя автора: ");
             author.setAuthorName(getString());
-            System.out.println("Фамилия автора: ");
+            System.out.print("Фамилия автора: ");
             author.setAuthorSurname(getString());
             return author;
         }catch (Exception e) {

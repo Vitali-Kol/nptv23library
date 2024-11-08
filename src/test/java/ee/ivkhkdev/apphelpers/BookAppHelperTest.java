@@ -38,7 +38,6 @@ class BookAppHelperTest {
         authors.add(new Author("Имя1", "Фамилия1"));
         authors.add(new Author("Имя2", "Фамилия2"));
         when(authorService.list()).thenReturn(authors);
-        doNothing().when(authorService).print();
 
         // Мокируем ввод
         BookAppHelper spyHelper = (BookAppHelper) Mockito.spy(bookAppHelper);
