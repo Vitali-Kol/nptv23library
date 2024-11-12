@@ -6,16 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="b4acfb5f-dda8-4640-9248-4bd057351b32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authors" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/books" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/AuthorAppHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/AuthorAppHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/BookAppHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/BookAppHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/CardAppHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/CardAppHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/UserAppHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/UserAppHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/interfaces/AppHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/interfaces/AppHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/interfaces/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/interfaces/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/CardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ee/ivkhkdev/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/BookAppHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/BookAppHelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/CardAppHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/CardAppHelperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/AuthorAppHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/AuthorAppHelperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/UserAppHelperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ee/ivkhkdev/apphelpers/UserAppHelperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +58,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.NPTV23Library.executor": "Run",
-    "JUnit.All in NPTV23Library.executor": "Coverage",
+    "JUnit.All in NPTV23Library.executor": "Run",
     "JUnit.AppHelperAuthorTest.create.executor": "Run",
     "JUnit.AppHelperAuthorTest.executor": "Run",
     "JUnit.AppHelperAuthorTest.printList.executor": "Run",
@@ -71,6 +74,9 @@
     "JUnit.AuthorAppHelperTest.testCreate.executor": "Debug",
     "JUnit.AuthorAppHelperTest.testCreateHandlesError.executor": "Run",
     "JUnit.AuthorAppHelperTest.testPrintList.executor": "Run",
+    "JUnit.AuthorAppHelperTest.testUpdate.executor": "Run",
+    "JUnit.AuthorAppHelperTest.testUpdate_InvalidInputAuthor.executor": "Run",
+    "JUnit.AuthorAppHelperTest.testUpdate_NameNotChanged.executor": "Run",
     "JUnit.AuthorServiceTest.add.executor": "Run",
     "JUnit.AuthorServiceTest.executor": "Run",
     "JUnit.AuthorServiceTest.testAddAuthorSuccessfully.executor": "Run",
@@ -95,6 +101,7 @@
     "JUnit.UserAppHelperTest.testCreate_UserCreationFailure.executor": "Run",
     "JUnit.UserAppHelperTest.testCreate_UserCreationSuccess.executor": "Run",
     "JUnit.UserAppHelperTest.testPrintList.executor": "Run",
+    "JUnit.UserAppHelperTest.testUpdateSuccessfull.executor": "Run",
     "JUnit.UserServiceTest.executor": "Run",
     "JUnit.UserServiceTest.testAddUserSuccessfully.executor": "Run",
     "JUnit.apphelpers in NPTV23Library.executor": "Run",
@@ -144,20 +151,7 @@
       <recent name="ee.ivkhkdev.interfaces.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NPTV23Library">
-    <configuration name="NPTV23Library" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.NPTV23Library" />
-      <module name="NPTV23Library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ee.ivkhkdev.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserAppHelperTest.testUpdateSuccessfull">
     <configuration name="All in NPTV23Library" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NPTV23Library" />
       <option name="PACKAGE_NAME" value="" />
@@ -166,7 +160,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CardAppHelperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthorAppHelperTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NPTV23Library" />
       <extension name="coverage">
         <pattern>
@@ -175,29 +169,46 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
-      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.CardAppHelperTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CardAppHelperTest.testPrintList_EmptyCards" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="NPTV23Library" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
-      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.CardAppHelperTest" />
-      <option name="METHOD_NAME" value="testPrintList_EmptyCards" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AuthorAppHelperTest" />
+      <option name="METHOD_NAME" value="testUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserAppHelperTest.testPrintList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthorAppHelperTest.testUpdate_InvalidInputAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AuthorAppHelperTest" />
+      <option name="METHOD_NAME" value="testUpdate_InvalidInputAuthor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorAppHelperTest.testUpdate_NameNotChanged" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NPTV23Library" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ee.ivkhkdev.apphelpers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
+      <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.AuthorAppHelperTest" />
+      <option name="METHOD_NAME" value="testUpdate_NameNotChanged" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserAppHelperTest.testUpdateSuccessfull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NPTV23Library" />
       <extension name="coverage">
         <pattern>
@@ -207,7 +218,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ee.ivkhkdev.apphelpers" />
       <option name="MAIN_CLASS_NAME" value="ee.ivkhkdev.apphelpers.UserAppHelperTest" />
-      <option name="METHOD_NAME" value="testPrintList" />
+      <option name="METHOD_NAME" value="testUpdateSuccessfull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -215,11 +226,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NPTV23Library" />
+        <item itemvalue="JUnit.UserAppHelperTest.testUpdateSuccessfull" />
+        <item itemvalue="JUnit.AuthorAppHelperTest.testUpdate_InvalidInputAuthor" />
+        <item itemvalue="JUnit.AuthorAppHelperTest.testUpdate_NameNotChanged" />
+        <item itemvalue="JUnit.AuthorAppHelperTest.testUpdate" />
         <item itemvalue="JUnit.All in NPTV23Library" />
-        <item itemvalue="JUnit.CardAppHelperTest" />
-        <item itemvalue="JUnit.CardAppHelperTest.testPrintList_EmptyCards" />
-        <item itemvalue="JUnit.UserAppHelperTest.testPrintList" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +259,8 @@
       <workItem from="1730372836564" duration="10390000" />
       <workItem from="1730383338058" duration="92000" />
       <workItem from="1731046584255" duration="3925000" />
+      <workItem from="1731395907101" duration="77000" />
+      <workItem from="1731395993936" duration="6958000" />
     </task>
     <servers />
   </component>
@@ -269,14 +282,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/BookAppHelper.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/BookAppHelper.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/main/java/ee/ivkhkdev/apphelpers/AuthorAppHelper.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

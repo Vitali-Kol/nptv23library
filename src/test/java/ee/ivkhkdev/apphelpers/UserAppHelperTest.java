@@ -1,11 +1,14 @@
 package ee.ivkhkdev.apphelpers;
 
+import ee.ivkhkdev.interfaces.Input;
+import ee.ivkhkdev.model.Author;
 import ee.ivkhkdev.model.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.io.ByteArrayOutputStream;
@@ -60,6 +63,29 @@ class UserAppHelperTest {
 
         // Проверяем, что метод вернул null при ошибке
         assertNull(user);
+    }
+    @Test
+    public void testUpdateSuccessfull(){
+        Input mockedInput = Mockito.mock(Input.class);
+        userAppHelper = new UserAppHelper() {
+            @Override
+            public String getString() {
+                return mockedInput.getString();
+            }
+        };
+        Mockito.when(mockedInput.getString()).thenReturn(
+                "1",
+                "y",
+                "NewName",
+                "y",
+                "NewSurname",
+                "y",
+                "123456"
+        );
+        List<User> users = List.of(new User("Ivan","Ivanov", "123456"));
+        List<User> modifedUsers = userAppHelper.update(users);
+        assertEquals("NewName", modifedUsers.get(0).getFirstname());
+        assertEquals("NewSurname", modifedUsers.get(0).getLastname());
     }
     @Test
     void testPrintList() {

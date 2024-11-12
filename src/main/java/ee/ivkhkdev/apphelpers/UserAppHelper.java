@@ -23,6 +23,11 @@ public class UserAppHelper implements AppHelper<User>, Input {
     }
 
     @Override
+    public List<User> update(List<User> entities) {
+        return List.of();
+    }
+
+    @Override
     public boolean printList(List<User> users) {
         System.out.println("---------- Список читателей --------");
         for(int i=0;i<users.size();i++) {

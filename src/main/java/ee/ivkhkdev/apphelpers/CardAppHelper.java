@@ -41,6 +41,11 @@ public class CardAppHelper implements AppHelper<Card>, Input {
     }
 
     @Override
+    public List<Card> update(List<Card> entities) {
+        return List.of();
+    }
+
+    @Override
     public boolean printList(List<Card> cards) {
         int counter = 0;
         System.out.println("--------- Список выданных книг --------");

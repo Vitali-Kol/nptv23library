@@ -34,9 +34,10 @@ public class BookService implements Service<Book> {
     }
 
     @Override
-    public boolean edit(Book book) {
+    public boolean edit() {
         return false;
     }
+
 
     @Override
     public boolean remove(Book book) {

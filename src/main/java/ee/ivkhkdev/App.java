@@ -33,9 +33,11 @@ public class App implements Input{
             System.out.println("1. Добавить книгу");
             System.out.println("2. Список книг");
             System.out.println("3. Добавить автора");
-            System.out.println("4. Добавить читателя");
-            System.out.println("5. Выдать книгу");
-            System.out.println("6. Вернуть книгу");
+            System.out.println("4. Изменить автора");
+            System.out.println("5. Добавить читателя");
+            System.out.println("6. Изменить читателя");
+            System.out.println("7. Выдать книгу");
+            System.out.println("8. Вернуть книгу");
 
             System.out.print("Введите номер задачи: ");
             int task = Integer.parseInt(getString());
@@ -65,6 +67,14 @@ public class App implements Input{
                     }
                     break;
                 case 4:
+                    System.out.println("----- Изменение автора -----");
+                    if (authorService.edit()) {
+                        System.out.println("Автор изменен");
+                    } else {
+                        System.out.println("Автора изменить не удалось");
+                    }
+                    break;
+                case 5:
                     System.out.println("----- Добавление читателя -----");
                     if (userService.add()) {
                         System.out.println("Читатель добавлен");
@@ -72,7 +82,15 @@ public class App implements Input{
                         System.out.println("Читателя добавить не удалось");
                     }
                     break;
-                case 5:
+                case 6:
+                    System.out.println("----- Изменение читателя -----");
+                    if (userService.add()) {
+                        System.out.println("Читатель изменен");
+                    } else {
+                        System.out.println("Читателя изменить не удалось");
+                    }
+                    break;
+                case 7:
                     System.out.println("------Выдача книги------");
                     if (cardService.add()) {
                         System.out.println("Книга выдана");
@@ -80,7 +98,7 @@ public class App implements Input{
                         System.out.println("Книгу выдать не удалось");
                     }
                     break;
-                case 6:
+                case 8:
                     System.out.println("------Возварат книги------");
                     if (((CardService)cardService).returnBook()) {
                         System.out.println("Книга возвращена");
