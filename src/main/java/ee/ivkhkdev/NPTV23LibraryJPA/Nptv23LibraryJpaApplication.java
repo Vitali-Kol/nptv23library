@@ -2,6 +2,7 @@ package ee.ivkhkdev.NPTV23LibraryJPA;
 
 import ee.ivkhkdev.NPTV23LibraryJPA.interfaces.Input;
 import ee.ivkhkdev.NPTV23LibraryJPA.services.AuthorService;
+import ee.ivkhkdev.NPTV23LibraryJPA.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,9 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 	@Autowired
 	private AuthorService authorService;
 
+	@Autowired
+	private BookService bookService;  // добавляем BookService
+
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("------ Библиотека группы NPTV23 с базой данных ------");
@@ -24,6 +28,7 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 			System.out.println("Список задач:");
 			System.out.println("0. Выйти из программы");
 			System.out.println("1. Добавить автора");
+			System.out.println("2. Добавить книгу");
 			System.out.print("Введите номер задачи: ");
 			int task = Integer.parseInt(input.getString());
 			switch (task) {
@@ -32,6 +37,9 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 					break;
 				case 1:
 					addAuthor();
+					break;
+				case 2:
+					addBook();
 					break;
 				default:
 					System.out.println("Выберите задачу из списка!");
@@ -49,6 +57,23 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 		try {
 			authorService.addAuthor(firstName, lastName);
 			System.out.println("Автор успешно добавлен!");
+		} catch (IllegalArgumentException e) {
+			System.out.println("Ошибка: " + e.getMessage());
+		}
+	}
+
+	private void addBook() {
+		System.out.print("Введите название книги: ");
+		String title = input.getString();
+		System.out.print("Введите жанр книги: ");
+		String genre = input.getString();
+		System.out.print("Введите имя автора: ");
+		String authorFirstName = input.getString();
+		System.out.print("Введите фамилию автора: ");
+		String authorLastName = input.getString();
+		try {
+			bookService.addBook(title, genre, authorFirstName, authorLastName);
+			System.out.println("Книга успешно добавлена!");
 		} catch (IllegalArgumentException e) {
 			System.out.println("Ошибка: " + e.getMessage());
 		}

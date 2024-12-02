@@ -16,9 +16,9 @@ public class Book {
     @Column(nullable = false)
     private String genre;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
-    private Author author;
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author author;  // Добавление связи с Author
 
     public Book() {
     }
