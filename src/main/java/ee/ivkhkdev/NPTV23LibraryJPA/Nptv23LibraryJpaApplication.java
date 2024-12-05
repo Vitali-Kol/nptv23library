@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
+import ee.ivkhkdev.NPTV23LibraryJPA.entity.Book;
 
 @SpringBootApplication
 public class Nptv23LibraryJpaApplication implements CommandLineRunner {
@@ -18,7 +19,7 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 	private AuthorService authorService;
 
 	@Autowired
-	private BookService bookService;  // добавляем BookService
+	private BookService bookService;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -29,6 +30,9 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 			System.out.println("0. Выйти из программы");
 			System.out.println("1. Добавить автора");
 			System.out.println("2. Добавить книгу");
+			System.out.println("3. Показать все книги");
+			System.out.println("4. Удалить книгу по ID");
+			System.out.println("5. Удалить автора по ID");  // Новый пункт меню
 			System.out.print("Введите номер задачи: ");
 			int task = Integer.parseInt(input.getString());
 			switch (task) {
@@ -40,6 +44,15 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 					break;
 				case 2:
 					addBook();
+					break;
+				case 3:
+					showBooks();
+					break;
+				case 4:
+					deleteBook();
+					break;
+				case 5:
+					deleteAuthor();  // Вызов метода для удаления автора
 					break;
 				default:
 					System.out.println("Выберите задачу из списка!");
@@ -74,6 +87,36 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 		try {
 			bookService.addBook(title, genre, authorFirstName, authorLastName);
 			System.out.println("Книга успешно добавлена!");
+		} catch (IllegalArgumentException e) {
+			System.out.println("Ошибка: " + e.getMessage());
+		}
+	}
+
+	private void showBooks() {
+		System.out.println("Список всех книг:");
+		for (Book book : bookService.getAllBooks()) {
+			System.out.println(book);
+		}
+	}
+
+	private void deleteBook() {
+		System.out.print("Введите ID книги для удаления: ");
+		Long bookId = Long.parseLong(input.getString());
+		try {
+			bookService.deleteBookById(bookId);
+			System.out.println("Книга успешно удалена!");
+		} catch (IllegalArgumentException e) {
+			System.out.println("Ошибка: " + e.getMessage());
+		}
+	}
+
+	// Метод для удаления автора по ID
+	private void deleteAuthor() {
+		System.out.print("Введите ID автора для удаления: ");
+		Long authorId = Long.parseLong(input.getString());
+		try {
+			authorService.deleteAuthorById(authorId);
+			System.out.println("Автор успешно удален!");
 		} catch (IllegalArgumentException e) {
 			System.out.println("Ошибка: " + e.getMessage());
 		}
