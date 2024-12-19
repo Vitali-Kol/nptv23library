@@ -1,9 +1,6 @@
 package ee.ivkhkdev.NPTV23LibraryJPA.services;
 
-import ee.ivkhkdev.NPTV23LibraryJPA.entity.Author;
 import ee.ivkhkdev.NPTV23LibraryJPA.entity.Book;
-import ee.ivkhkdev.NPTV23LibraryJPA.helpers.AuthorHelper;
-import ee.ivkhkdev.NPTV23LibraryJPA.interfaces.AuthorRepository;
 import ee.ivkhkdev.NPTV23LibraryJPA.interfaces.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,49 +9,31 @@ import org.springframework.stereotype.Service;
 public class BookService {
 
     private final BookRepository bookRepository;
-    private final AuthorRepository authorRepository;
 
     @Autowired
-    public BookService(BookRepository bookRepository, AuthorRepository authorRepository) {
+    public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
-        this.authorRepository = authorRepository;
     }
 
-    // Метод для добавления книги с автором
-    public void addBook(String title, String genre, String authorFirstName, String authorLastName) {
-        if (title == null || title.trim().isEmpty() ||
-                genre == null || genre.trim().isEmpty() ||
-                authorFirstName == null || authorFirstName.trim().isEmpty() ||
-                authorLastName == null || authorLastName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Все поля должны быть заполнены.");
-        }
-
-        // Используем AuthorHelper для создания или поиска автора
-        Author author = AuthorHelper.createAuthor(authorFirstName, authorLastName);
-        Author existingAuthor = authorRepository.findByFirstNameAndLastName(author.getFirstName(), author.getLastName())
-                .stream()
-                .findFirst()
-                .orElseGet(() -> authorRepository.save(author)); // Если автор не найден, сохраняем его
-
-        // Создаем и сохраняем книгу с найденным или новым автором
-        Book book = new Book(title.trim(), genre.trim(), existingAuthor);
-        bookRepository.save(book);
-    }
-
-    // Метод для добавления книги без указания автора
     public void addBook(String title, String genre) {
         if (title == null || title.trim().isEmpty() || genre == null || genre.trim().isEmpty()) {
             throw new IllegalArgumentException("Название книги и жанр обязательны.");
         }
 
-        // Создаем книгу без автора
-        Book book = new Book(title.trim(), genre.trim(), null); // Без автора
+        Book book = new Book(title.trim(), genre.trim());
         bookRepository.save(book);
     }
 
-    // Метод для получения всех книг
-    public Iterable<Book> getAllBooks() {
-        return bookRepository.findAll();
+    // Метод для получения всех книг в читабельном формате
+    public String getAllBooksFormatted() {
+        StringBuilder formattedBooks = new StringBuilder();
+        for (Book book : bookRepository.findAll()) {
+            formattedBooks.append(String.format("ID: %d, Название: %s, Жанр: %s\n",
+                    book.getId(),
+                    book.getTitle(),
+                    book.getGenre()));
+        }
+        return formattedBooks.toString();
     }
 
     // Метод для удаления книги по ID
@@ -63,21 +42,5 @@ public class BookService {
             throw new IllegalArgumentException("Книга с таким ID не найдена.");
         }
         bookRepository.deleteById(id);
-    }
-
-    public void addBook(String title, String genre, Long authorId) {
-        if (title == null || title.trim().isEmpty() || genre == null || genre.trim().isEmpty()) {
-            throw new IllegalArgumentException("Название книги и жанр обязательны.");
-        }
-        if (authorId == null || !authorRepository.existsById(authorId)) {
-            throw new IllegalArgumentException("Автор с указанным ID не найден.");
-        }
-        Author author = authorRepository.findById(authorId).orElseThrow(() ->
-                new IllegalArgumentException("Автор с указанным ID не найден.")
-        );
-
-        // Создаем и сохраняем книгу с указанным автором
-        Book book = new Book(title.trim(), genre.trim(), author);
-        bookRepository.save(book);
     }
 }

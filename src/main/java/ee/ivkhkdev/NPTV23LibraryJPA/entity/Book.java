@@ -16,17 +16,12 @@ public class Book {
     @Column(nullable = false)
     private String genre;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id", nullable = false)
-    private Author author;  // Добавление связи с Author
-
     public Book() {
     }
 
-    public Book(String title, String genre, Author author) {
+    public Book(String title, String genre) {
         this.title = title;
         this.genre = genre;
-        this.author = author;
     }
 
     // Getters and setters
@@ -54,14 +49,6 @@ public class Book {
         this.genre = genre;
     }
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
     // equals and hashCode
     @Override
     public boolean equals(Object o) {
@@ -83,7 +70,6 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
-                ", author=" + author +
                 '}';
     }
 }
