@@ -64,4 +64,20 @@ public class BookService {
         }
         bookRepository.deleteById(id);
     }
+
+    public void addBook(String title, String genre, Long authorId) {
+        if (title == null || title.trim().isEmpty() || genre == null || genre.trim().isEmpty()) {
+            throw new IllegalArgumentException("Название книги и жанр обязательны.");
+        }
+        if (authorId == null || !authorRepository.existsById(authorId)) {
+            throw new IllegalArgumentException("Автор с указанным ID не найден.");
+        }
+        Author author = authorRepository.findById(authorId).orElseThrow(() ->
+                new IllegalArgumentException("Автор с указанным ID не найден.")
+        );
+
+        // Создаем и сохраняем книгу с указанным автором
+        Book book = new Book(title.trim(), genre.trim(), author);
+        bookRepository.save(book);
+    }
 }

@@ -1,13 +1,14 @@
 package ee.ivkhkdev.NPTV23LibraryJPA;
 
+import ee.ivkhkdev.NPTV23LibraryJPA.entity.Author;
+import ee.ivkhkdev.NPTV23LibraryJPA.entity.Book;
 import ee.ivkhkdev.NPTV23LibraryJPA.interfaces.Input;
 import ee.ivkhkdev.NPTV23LibraryJPA.services.AuthorService;
 import ee.ivkhkdev.NPTV23LibraryJPA.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.CommandLineRunner;
-import ee.ivkhkdev.NPTV23LibraryJPA.entity.Book;
 
 @SpringBootApplication
 public class Nptv23LibraryJpaApplication implements CommandLineRunner {
@@ -21,6 +22,10 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 	@Autowired
 	private BookService bookService;
 
+	public static void main(String[] args) {
+		SpringApplication.run(Nptv23LibraryJpaApplication.class, args);
+	}
+
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("------ Библиотека группы NPTV23 с базой данных ------");
@@ -32,7 +37,8 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 			System.out.println("2. Добавить книгу");
 			System.out.println("3. Показать все книги");
 			System.out.println("4. Удалить книгу по ID");
-			System.out.println("5. Удалить автора по ID");  // Новый пункт меню
+			System.out.println("5. Удалить автора по ID");
+			System.out.println("6. Показать всех авторов");
 			System.out.print("Введите номер задачи: ");
 			int task = Integer.parseInt(input.getString());
 			switch (task) {
@@ -52,7 +58,10 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 					deleteBook();
 					break;
 				case 5:
-					deleteAuthor();  // Вызов метода для удаления автора
+					deleteAuthor();
+					break;
+				case 6:
+					showAuthors();
 					break;
 				default:
 					System.out.println("Выберите задачу из списка!");
@@ -80,12 +89,10 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 		String title = input.getString();
 		System.out.print("Введите жанр книги: ");
 		String genre = input.getString();
-		System.out.print("Введите имя автора: ");
-		String authorFirstName = input.getString();
-		System.out.print("Введите фамилию автора: ");
-		String authorLastName = input.getString();
+		System.out.print("Введите ID автора: ");
+		Long authorId = Long.parseLong(input.getString());
 		try {
-			bookService.addBook(title, genre, authorFirstName, authorLastName);
+			bookService.addBook(title, genre, authorId);
 			System.out.println("Книга успешно добавлена!");
 		} catch (IllegalArgumentException e) {
 			System.out.println("Ошибка: " + e.getMessage());
@@ -110,7 +117,6 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 		}
 	}
 
-	// Метод для удаления автора по ID
 	private void deleteAuthor() {
 		System.out.print("Введите ID автора для удаления: ");
 		Long authorId = Long.parseLong(input.getString());
@@ -122,7 +128,11 @@ public class Nptv23LibraryJpaApplication implements CommandLineRunner {
 		}
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(Nptv23LibraryJpaApplication.class, args);
+	private void showAuthors() {
+		System.out.println("Список всех авторов:");
+		Iterable<Author> authors = authorService.getAllAuthors();
+		for (Author author : authors) {
+			System.out.println(author);
+		}
 	}
 }
